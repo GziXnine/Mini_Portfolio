@@ -672,6 +672,10 @@ header {
             padding-bottom: 27px;
             border-bottom: 2px solid var(--hover-color);
             color: var(--hover-color);
+
+            @media (max-width: 567px) {
+              padding-bottom: 15px;
+            }
           }
         }
       }
