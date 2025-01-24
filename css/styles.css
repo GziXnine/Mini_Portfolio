@@ -1,5 +1,6 @@
 /** @format */
 
+/* Start Normailzation */
 * {
   box-sizing: border-box !important;
   margin: 0;
@@ -61,7 +62,9 @@ html {
     }
   }
 }
+/* End Normailzation */
 
+/* Start Header Section */
 header {
   position: fixed;
   top: 0;
@@ -133,7 +136,9 @@ header {
     }
   }
 }
+/* End Header Section */
 
+/* Start Componant */
 .line-effect {
   background: linear-gradient(
     to right,
@@ -223,9 +228,13 @@ header {
     }
   }
 }
+/* End Componant */
 
+/* Start Main Section */
 main {
   padding-bottom: 90px;
+
+  /* Start Home Section */
   #home {
     height: 100vh;
 
@@ -310,7 +319,9 @@ main {
       }
     }
   }
+  /* End Home Section */
 
+  /* Start About Section */
   #about {
     height: 60vh;
 
@@ -366,8 +377,11 @@ main {
       }
     }
   }
+  /* End About Section */
 }
+/* End Main Section */
 
+/* Start Projects Section */
 #projects {
   background-color: rgb(30, 30, 30);
 
@@ -482,7 +496,9 @@ main {
     -webkit-text-fill-color: transparent;
   }
 }
+/* End Projects Section */
 
+/* Start Footer Section */
 footer {
   text-align: center;
   padding: 90px 0;
@@ -581,7 +597,9 @@ footer {
     }
   }
 }
+/* End Footer Section */
 
+/* Start Animation */
 @keyframes wave {
   0%,
   100% {
@@ -608,3 +626,4 @@ footer {
     transform: translateY(0);
   }
 }
+/* End Animation */
