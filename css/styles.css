@@ -567,7 +567,11 @@ html {
   body {
     font-family: "Audiowide", sans-serif;
     color: white;
-    height: 5000px;
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
     .container {
       padding: 0 10px;
@@ -613,7 +617,7 @@ header {
   z-index: 1000;
   width: 100%;
   background-color: var(--main-color);
-  border-bottom: 1px solid var(--hover-color);
+  border-bottom: 0.1px solid rgba(254, 109, 101, 0.25);
   padding: 6px 0;
 
   .container {
@@ -663,7 +667,10 @@ header {
           font-weight: 500;
           transition: all 0.2s;
 
+          &.active,
           &:hover {
+            padding-bottom: 27px;
+            border-bottom: 2px solid var(--hover-color);
             color: var(--hover-color);
           }
         }
@@ -725,13 +732,45 @@ header {
   }
 }
 
-main {
-  background-image: url(../images/background.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+.popup-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  cursor: zoom-out;
+}
 
+.popUp {
+  position: fixed;
+  z-index: 2001;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: 767px) {
+    width: 370px;
+  }
+
+  img {
+    width: 730px;
+    max-width: 100%;
+    transition: 0.3s;
+    border-radius: 12px;
+    cursor: grab;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+main {
+  padding-bottom: 90px;
   #home {
     height: 100vh;
 
@@ -822,6 +861,7 @@ main {
 
     @media (max-width: 992px) {
       height: 70vh;
+      padding-top: 40px;
     }
 
     .container {
@@ -867,6 +907,159 @@ main {
           p {
             margin-bottom: 20px;
           }
+        }
+      }
+    }
+  }
+}
+
+#projects {
+  background-color: rgb(30, 30, 30);
+
+  @media (max-width: 992px) {
+    padding-top: 40px;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+    text-align: center;
+    color: var(--hover-color);
+    padding: 70px 0;
+
+    @media (max-width: 992px) {
+      font-size: 2rem;
+    }
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .project {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+
+      &.reverse {
+        flex-direction: column;
+      }
+    }
+
+    .data {
+      width: 50%;
+
+      @media (min-width: 1200px) {
+        padding-left: 50px;
+      }
+
+      @media (max-width: 992px) {
+        width: 100%;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+
+        @media (max-width: 992px) {
+          font-size: 0.9rem;
+          padding-top: 20px;
+        }
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-family: "Mali", cursive;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        text-transform: capitalize;
+      }
+
+      .btn {
+        margin-top: 20px;
+      }
+    }
+
+    .photo {
+      width: 40%;
+      cursor: pointer;
+
+      img {
+        width: 530px;
+        height: 270px;
+        border-radius: 10px;
+      }
+
+      @media (max-width: 992px) {
+        width: 100%;
+
+        img {
+          width: 320px;
+          height: 200px;
+        }
+      }
+    }
+  }
+
+  .dotted {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    -webkit-text-security: disc;
+    background: linear-gradient(
+      to right,
+      #b26ceb 50%,
+      #de6bbd 20%,
+      #fe6c65 38%,
+      #fe6f64 38%,
+      #ff9c51 89%
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 90px 0;
+
+  h3 {
+    font-size: 48px;
+    padding-bottom: 50px;
+  }
+
+  ul {
+    li {
+      display: inline-block;
+
+      a {
+        margin-bottom: 30px;
+        margin-left: 11px;
+        width: 43px;
+        margin-right: 28px;
+        font-size: 19px;
+        padding: 10px;
+        color: white;
+        background-color: black;
+        border: none;
+        border: 1px dashed;
+        border-bottom-color: rgb(255, 95, 106);
+        border-right-color: rgb(255, 151, 82);
+        border-left-color: rgb(124, 74, 146);
+        border-top-color: rgb(255, 95, 106);
+        border-radius: 50%;
+
+        &:hover {
+          color: var(--hover-color);
         }
       }
     }

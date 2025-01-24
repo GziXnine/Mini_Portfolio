@@ -51,3 +51,65 @@ VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
   speed: 400,
   scale: 1.1,
 });
+
+// ! Make a PopUp To A Lastest News Photos.
+let img = document.querySelectorAll(".projects .photo img");
+img.forEach((ele) => {
+  ele.addEventListener("click", (e) => {
+    let div = document.createElement("div");
+    div.className = "popup-overlay";
+
+    let popUp = document.createElement("div");
+    popUp.className = "popUp";
+
+    let popUpImg = document.createElement("img");
+    popUpImg.src = ele.src;
+
+    div.addEventListener("click", function () {
+      popUp.remove();
+      div.remove();
+    });
+
+    document.body.appendChild(popUp);
+    document.body.appendChild(div);
+    popUp.appendChild(popUpImg);
+  });
+});
+
+// !Listen to the scroll event
+window.addEventListener("scroll", function () {
+  const blocks = document.querySelectorAll(".block");
+  const navbarLinks = document.querySelectorAll(".nav-links a");
+
+  let lastBlockActivated = false;
+
+  blocks.forEach(function (block, index) {
+    if (window.scrollY >= block.offsetTop - window.innerHeight / 2) {
+      const blockID = block.id;
+
+      navbarLinks.forEach(function (link) {
+        link.classList.remove("active");
+      });
+
+      const activeLink = document.querySelector(
+        `.nav-links a[data-scroll='${blockID}']`
+      );
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
+
+      lastBlockActivated = index === blocks.length - 1;
+    }
+  });
+
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    navbarLinks.forEach(function (link) {
+      link.classList.remove("active");
+    });
+
+    const lastLink = document.querySelector(".nav-links li:last-of-type a");
+    if (lastLink) {
+      lastLink.classList.add("active");
+    }
+  }
+});
